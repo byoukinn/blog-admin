@@ -5,9 +5,12 @@
         <NavMenu class="fill-height" />
       </el-aside>
       <el-main class="main">
-        <el-header class="header">Header</el-header>
-        <TabsView />
-        <BreadCrumb />
+        <el-header class="header">
+          <BreadCrumb />
+        </el-header>
+        <!-- 拆分，手动写tabs -->
+        <Tabs />
+        <app-main />
       </el-main>
     </el-container>
   </div>
@@ -15,17 +18,16 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import NavMenu from "@/components/layout/NavMenu.vue"
-import TabsView from "@/components/layout/Tabs.vue"
-import BreadCrumb from "@/components/layout/BreadCrumb.vue"
+// import HelloWorld from '@/components/HelloWorld.vue'
+import { NavMenu, Tabs, AppMain, BreadCrumb } from "@/components/layout"
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    // HelloWorld,
     NavMenu,
-    TabsView,
+    Tabs,
+    AppMain,
     BreadCrumb,
   }
 }

@@ -1,19 +1,22 @@
 <template>
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-    <el-breadcrumb-item>
-      <a href="/">活动管理</a>
-    </el-breadcrumb-item>
-    <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-    <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+    <el-breadcrumb-item v-for="p in paths" :key="p.id" :to="{path: p.path}">{{p.name}}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script>
 export default {
-
+  computed: {
+    paths() {
+      return this.$route.matched.slice(1, this.$route.matched.length)
+    }
+  }
 }
 </script>
 
-<style>
+<style >
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner.is-link {
+  color: aliceblue;
+}
 </style>
