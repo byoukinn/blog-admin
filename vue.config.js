@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '.',
+    publicPath: '/',
     devServer: {
         overlay: {
             warnings: false,
@@ -8,7 +8,7 @@ module.exports = {
         disableHostCheck: true,
         proxy: {
             '/api': {
-                target: 'http://blog-admin.zhangbk.cn/api/public/',
+                target: 'http://localhost:8222/',
                 ws: false,
                 changeOrigin: true,
                 pathRewrite: {

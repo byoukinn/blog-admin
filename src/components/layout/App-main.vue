@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <transition name="fade">
+  <section class="app-main">
+    <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
   </section>
@@ -13,13 +13,23 @@ export default {
 </script>
 
 <style scoped>
+.app-main {
+  padding: 32px 16px;
+}
 .fade-enter-active,
 .fade-leave-active {
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: opacity 0.5s;
+  transition-timing-function: linear;
+  transition: 0.4s;
+  opacity: 1;
+  transform: translate(0px, 0px);
 }
 .fade-enter,
 .fade-leave-active {
+  transition: 0.4s;
   opacity: 0;
+  transform: translate(25px, 0px);
+}
+.fade-enter {
+  transform: translate(-25px, 0px);
 }
 </style>

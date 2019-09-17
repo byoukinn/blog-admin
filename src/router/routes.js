@@ -1,12 +1,12 @@
 import homeRoutes from './home-router.js'
 
 const routes = [{
-        path: '/auth',
-        name: 'auth',
-        component: () => import( /* webpackChunkName: "auth" */ '@/components/layout/Auth.vue'),
+        path: '/login',
+        name: 'login',
+        component: () => import( /* webpackChunkName: "login" */ '@/components/layout/Login.vue'),
         meta: {
             icon: 'el-icon-document',
-            title: '登录',
+            title: '博客系统-登录',
         },
     },
     {
@@ -23,7 +23,7 @@ const routes = [{
                 component: () => import('@/views/Setting.vue'),
                 meta: {
                     icon: 'el-icon-document',
-                    title: '全局设置',
+                    title: '博客系统-全局设置',
                 },
             },
             {
@@ -31,7 +31,7 @@ const routes = [{
                 path: '/about',
                 meta: {
                     icon: 'el-icon-document',
-                    title: '关于本站',
+                    title: '博客系统-关于本站',
                 },
             },
             {
@@ -46,7 +46,7 @@ const routes = [{
         ],
         meta: {
             hidden: true,
-            title: '首页',
+            title: '博客系统-首页',
         }
 
     },
