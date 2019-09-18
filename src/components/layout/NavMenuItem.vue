@@ -3,7 +3,7 @@
     <el-submenu v-if="data.children" :index="data.path">
       <template slot="title">
         <i :class="data.icon"></i>
-        <span>{data.meta.title}}</span>
+        <span>{{data.meta.title}}</span>
       </template>
       <!-- 递归自己 -->
       <NavMenuItem v-for="d in data.children" :key="d.id" :data="d" />
@@ -28,5 +28,3 @@ export default {
 }
 </script>
 
-<style>
-</style>

@@ -1,7 +1,9 @@
 <template>
   <section class="app-main">
     <transition name="fade" mode="out-in">
-      <router-view></router-view>
+      <el-card>
+        <router-view></router-view>
+      </el-card>
     </transition>
   </section>
 </template>
@@ -14,7 +16,7 @@ export default {
 
 <style scoped>
 .app-main {
-  padding: 32px 16px;
+  padding: 24px 16px;
 }
 .fade-enter-active,
 .fade-leave-active {

@@ -40,4 +40,8 @@ export default {
 .a {
   color: rgb(66, 66, 66);
 }
+.nav-vertical {
+  border: 0;
+}
 </style>
+

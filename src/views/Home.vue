@@ -1,7 +1,8 @@
 <template>
   <div class="home fill-height">
     <el-container class="fill-height">
-      <el-aside width="200px" class="fill-height">
+      <el-aside class="fill-height aside">
+        <el-header class="header">博客系统</el-header>
         <NavMenu class="fill-height" />
       </el-aside>
       <el-main class="main">
@@ -11,6 +12,9 @@
         <!-- 拆分，手动写tabs -->
         <Tabs />
         <app-main />
+        <el-footer>
+          <Footer />
+        </el-footer>
       </el-main>
     </el-container>
   </div>
@@ -19,7 +23,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import { NavMenu, Tabs, AppMain, BreadCrumb } from "@/components/layout"
+import { NavMenu, Tabs, AppMain, BreadCrumb, Footer } from "@/components/layout"
 
 export default {
   name: 'home',
@@ -29,6 +33,7 @@ export default {
     Tabs,
     AppMain,
     BreadCrumb,
+    Footer,
   }
 }
 </script>
@@ -42,5 +47,9 @@ export default {
 }
 .main {
   padding: 0px;
+}
+.aside {
+  width: 200px !important;
+  overflow-y: hidden;
 }
 </style>

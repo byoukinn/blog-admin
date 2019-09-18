@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
     })
     return
   } else if (to.meta.title) {
-    document.title = to.meta.title
+    document.title = to.meta.title + ' - 博客系统'
   }
 
   next()

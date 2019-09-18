@@ -1,6 +1,6 @@
 <template>
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item v-for="p in paths" :key="p.id" :to="{path: p.path}">{{p.name}}</el-breadcrumb-item>
+    <el-breadcrumb-item v-for="p in paths" :key="p.id" :to="{path: p.path}">{{p.meta.title}}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
