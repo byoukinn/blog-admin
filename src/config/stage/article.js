@@ -10,9 +10,9 @@ const articleRouter = {
     children: [{
             title: '添加文章',
             type: 'view',
-            name: 'article-info',
+            name: 'article-add',
             route: '/article/add',
-            filePath: 'views/article/ArticleInfo.vue',
+            filePath: 'views/article/ArticleAdd.vue',
             inNav: true,
             icon: ''
         },

@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h1>This is an about page</h1>
-  </div>
+  <el-row>
+    <el-col :md="12">
+      <ArticleInfo />
+    </el-col>
+  </el-row>
 </template>
 
 <script>
+import ArticleInfo from './ArticleInfo'
 export default {
-
+  components: {
+    ArticleInfo,
+  }
 }
 </script>
 

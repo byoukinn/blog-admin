@@ -9,7 +9,7 @@
         :router="true"
         active-text-color="#E6A2 3C"
       >
-        <NavMenuItem v-for="item in items[1].children" :key="item.id" :data="item" />
+        <NavMenuItem v-for="item in stageList" :key="item.id" :data="item" />
       </el-menu>
     </el-col>
   </el-row>
@@ -17,18 +17,10 @@
 
 <script>
 import NavMenuItem from '@/components/layout/NavMenuItem.vue'
-
+import mapGetters from 'vuex'
 export default {
-  data() {
-    return {
-      // mock数据
-      items: []
-    }
-  },
-  created() {
-    // 适配掉不适用的routes
-    console.log(this.$router.options.routes[1])
-    this.items = this.$router.options.routes
+  methods: {
+    ...mapGetters(['stageList']),
   },
   components: {
     NavMenuItem,

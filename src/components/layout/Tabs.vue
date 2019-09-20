@@ -30,7 +30,7 @@ export default {
   },
   watch: {
     $route(to) {
-      // 如果 histories 里没有跳转的路由，则加入堆栈
+      // 如果是 histories 里没有跳转过的路由，则加入堆栈
       let included = this.histories.map(item => to.name == item.name).includes(true)
       if (!included) this.histories.push(to)
     }
@@ -64,6 +64,7 @@ export default {
   display: flex;
   z-index: 999;
   padding-left: 18px;
+  font-size: 14px;
 }
 .tabs li + li {
   border-left: #30313326 solid 1px;

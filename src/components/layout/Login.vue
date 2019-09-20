@@ -89,16 +89,15 @@ export default {
   methods: {
     async submitForm() {
       this.loading = true
-      let resp = await service.login({ data: this.form })
-      let res = resp.data
-      if (res.code == 200) {
+      let { data } = await service.login({ data: this.form })
+      if (data.code == 200) {
         this.loading = false
         this.setAuthorAndStatus(this.form, true)
         this.$router.push({ name: "home" })
-        this.$message.success(res.result)
+        this.$message.success(data.msg)
       } else {
         this.loading = false
-        this.$message.error(res.result)
+        this.$message.error(data.msg)
       }
     },
     async setAuthorAndStatus(auth, status) {

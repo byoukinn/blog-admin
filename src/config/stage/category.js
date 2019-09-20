@@ -10,9 +10,9 @@ const categoryRouter = {
     children: [{
             title: '添加分类',
             type: 'view',
-            name: 'category-info',
+            name: 'category-add',
             route: '/category/add',
-            filePath: 'views/category/CategoryInfo.vue',
+            filePath: 'views/category/CategoryAdd.vue',
             inNav: true,
             icon: ''
         },

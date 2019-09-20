@@ -1,5 +1,7 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import stateConfig from '@/config/stage'
+import * as getters from './getters'
 
 Vue.use(Vuex)
 
@@ -7,6 +9,8 @@ const store = new Vuex.Store({
     state: {
         login: false,
         author: '',
+
+        stateConfig,
     },
     mutations: {
         setStatus(state, status) {
@@ -16,6 +20,7 @@ const store = new Vuex.Store({
             state.author = payload
         },
     },
+    getters,
     actions: {
         login({
             commit

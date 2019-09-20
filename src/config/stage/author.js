@@ -10,9 +10,9 @@ const authorRouter = {
     children: [{
             title: '添加作者',
             type: 'view',
-            name: 'author-info',
+            name: 'author-add',
             route: '/author/add',
-            filePath: 'views/author/AuthorInfo.vue',
+            filePath: 'views/author/AuthorAdd.vue',
             inNav: true,
             icon: ''
         },
