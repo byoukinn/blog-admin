@@ -13,7 +13,7 @@ const articleRouter = {
 			type: 'view',
 			name: 'article-add',
 			route: '/article/add',
-			filePath: 'views/article/ArticleAdd.vue',
+			filePath: 'views/article/ArticleInfo.vue',
 			inNav: true,
 			icon: '',
 		},

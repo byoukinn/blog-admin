@@ -13,7 +13,7 @@ const categoryRouter = {
 			type: 'view',
 			name: 'category-add',
 			route: '/category/add',
-			filePath: 'views/category/CategoryAdd.vue',
+			filePath: 'views/category/CategoryInfo.vue',
 			inNav: true,
 			icon: '',
 		},

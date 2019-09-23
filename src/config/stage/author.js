@@ -13,7 +13,7 @@ const authorRouter = {
 			type: 'view',
 			name: 'author-add',
 			route: '/author/add',
-			filePath: 'views/author/AuthorAdd.vue',
+			filePath: 'views/author/AuthorInfo.vue',
 			inNav: true,
 			icon: '',
 		},

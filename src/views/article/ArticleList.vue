@@ -31,15 +31,16 @@ export default {
 			loading: false,
 			page: 1,
 			rowSize: 10,
+			index: 1,	// 用于 messageBox 唯一化
 			filter: '',
 		}
 	},
 	created() {
 		this.setData()
-  },
-  components: {
-    ArticleInfo,
-  },
+	},
+	components: {
+		ArticleInfo,
+	},
 	methods: {
 		async setData() {
 			this.loading = true
@@ -51,38 +52,41 @@ export default {
 			// } else {
 			//   this.$message.error(res.result)
 			// }
-    },
-    async editRow(data) {
-      const h = this.$createElement;
-        this.$msgbox({
-          title: '编辑文章',
-          message: h('ArticleInfo'),
-          showCancelButton: true,
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          beforeClose: (action, instance, done) => {
-            if (action === 'confirm') {
-              instance.confirmButtonLoading = true;
-              instance.confirmButtonText = '执行中...';
-              setTimeout(() => {
-                done();
-                setTimeout(() => {
-                  instance.confirmButtonLoading = false;
-                }, 300);
-              }, 3000);
-            } else {
-              done();
-            }
-          }
-        }).then(action => {
-          this.$message({
-            type: 'info',
-            message: 'action: ' + action
-          });
-        });
-    }
+		},
+		async editRow(data) {
+			const h = this.$createElement;
+			console.log(data)
+			let props = {params: data}
+			props.action = 'edit'
+			props.mode = 'messageBox'
+			this.$msgbox({
+			title: '编辑文章',
+			message: h('ArticleInfo', { props: props, key: this.index++ }),
+			showCancelButton: true,
+			confirmButtonText: '确定',
+			cancelButtonText: '取消',
+			beforeClose: (action, instance, done) => {
+				if (action === 'confirm') {
+				instance.confirmButtonLoading = true;
+				instance.confirmButtonText = '执行中...';
+					setTimeout(() => {
+						done();
+						setTimeout(() => {
+							instance.confirmButtonLoading = false;
+						}, 300);
+					}, 3000);
+				} else {
+					done();
+				}
+			}
+			}).then(action => {
+				this.$message({
+					type: 'info',
+					message: 'action: ' + action
+				});
+			});
+		}
 	},
 }
 </script>
 
- 
