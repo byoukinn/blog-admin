@@ -1,40 +1,39 @@
-import { get, post, put, _delete } from 'axios'
-import store from '../../store'
+import { get, post, put, delete as _delete } from 'axios'
 
 class Author {
 	async login(data) {
-		let res = await post('api/login', data)
+		let res = await post('/api/login', data)
 		if (res.code == 200) {
 			store.dispatch('login', data)
 		}
 		return res
 	}
 	async logout(data) {
-		let res = await post('api/logout', data)
-		return res
-	}
-	async getAuthorList() {
-		let res = await get('api/author')
+		let res = await post('/api/logout', data)
 		return res
 	}
 	async createAuthor(data) {
-		let res = await post('api/author', data)
+		let res = await post('/api/author', data)
 		return res
 	}
-	async getAuthors() {
-		let res = await get('api/author')
+	async getAuthors(page = 1, rowSize = 20) {
+		let res = await get(`/api/author/${page}/${rowSize}`)
 		return res
 	}
-	async updateAuthor(data) {
-		let res = await put('api/author', data)
+	async updateAuthor(id, data) {
+		let res = await put(`/api/author/${id}`, data)
 		return res
 	}
 	async getAuthor(id) {
-		let res = await get(`api/author/${id}`)
+		let res = await get(`/api/author/${id}`)
 		return res
 	}
 	async deleteAuthor(id) {
-		let res = await _delete(`api/author/${id}`)
+		let res = await _delete(`/api/author/${id}`)
+		return res
+	}
+	async checkName(data) {
+		let res = await post(`/api/checkAuthorName`, data)
 		return res
 	}
 }

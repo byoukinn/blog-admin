@@ -1,4 +1,4 @@
-import { get, post, put, _delete } from 'axios'
+import { get, post, put, delete as _delete } from 'axios'
 
 class Article {
 	async createArticle(data) {
@@ -9,8 +9,8 @@ class Article {
 		let res = await get('/api/article')
 		return res
 	}
-	async updateArticle(data) {
-		let res = await put('/api/article', data)
+	async updateArticle(id, data) {
+		let res = await put(`/api/article/${id}`, data)
 		return res
 	}
 	async getArticle(id) {

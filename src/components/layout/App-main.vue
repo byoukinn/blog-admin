@@ -1,11 +1,11 @@
 <template>
 	<section class="app-main">
 		<header class="header">
-			<el-row >
-        <el-col :md="8" >
-          <h3 class="title">{{ $route.meta.title }}</h3>
-        </el-col>
-				<el-col :push="8" :md="8">
+			<el-row>
+				<el-col :span="12">
+					<h3 class="title">{{ $route.meta.title }}</h3>
+				</el-col>
+				<el-col :sm="12" :md="{push:4, span:8}">
 					<el-input placeholder="请输入内容" v-model="filter" size="small">
 						<el-button slot="append" icon="el-icon-search"></el-button>
 					</el-input>
@@ -52,7 +52,7 @@ export default {
 }
 
 .title {
-  padding-left: 8px
+	padding-left: 8px;
 }
 .fade-enter-active,
 .fade-leave-active {

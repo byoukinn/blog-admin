@@ -10,6 +10,7 @@ const store = new Vuex.Store({
 		login: false,
 		author: '',
 		filter: '',
+		sideBarCollapse: false,
 
 		stageConfig,
 	},
@@ -22,6 +23,9 @@ const store = new Vuex.Store({
 		},
 		updateFilter(state, payload) {
 			state.filter = payload
+		},
+		updateSideBarCollapse(state) {
+			state.sideBarCollapse = !state.sideBarCollapse
 		},
 	},
 	getters,

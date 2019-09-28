@@ -1,3 +1,5 @@
+import os from '@/lib/os'
+
 let stageMap = {}
 let dfs = (total, callback) => {
 	if (Array.isArray(total)) {
@@ -10,6 +12,17 @@ let dfs = (total, callback) => {
 	} else {
 		callback(total)
 	}
+}
+
+let initCollapse = false
+export const sideBarCollapse = state => {
+	const { sideBarCollapse } = state
+	// 如果是移动端第一次进来就折叠面板
+	if (!initCollapse && !os.isPc) {
+		initCollapse = true
+		sideBarCollapse = false
+	}
+	return sideBarCollapse
 }
 
 export const navBarList = state => {
