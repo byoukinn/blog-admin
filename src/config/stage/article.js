@@ -24,6 +24,9 @@ const articleRouter = {
 			route: '/article/list',
 			filePath: 'views/article/ArticleList.vue',
 			inNav: true,
+			search: true,
+			outFromCard: true,
+
 			icon: '',
 		},
 	],

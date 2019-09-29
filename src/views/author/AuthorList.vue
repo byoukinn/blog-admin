@@ -1,6 +1,11 @@
 <template>
 	<div>
-		<el-table :data="tableData" style="width: 100%" v-loading="loading" :fit="true">
+		<el-table
+			:data="tableData"
+			style="width: 100%"
+			v-loading="loading"
+			cell-class-name="cell--limited"
+		>
 			<el-table-column prop="username" label="作者名" width="120"></el-table-column>
 			<el-table-column prop="email" label="邮箱" width="200"></el-table-column>
 			<el-table-column prop="comment" label="签名" width="360"></el-table-column>
@@ -51,6 +56,7 @@ export default {
 		}
 	},
 	components: {
+		// eslint-disable-next-line
 		AuthorInfo,
 	},
 	created() {
@@ -92,4 +98,3 @@ export default {
 }
 </style>
 
- 

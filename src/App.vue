@@ -20,4 +20,10 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+.el-table .cell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 </style>

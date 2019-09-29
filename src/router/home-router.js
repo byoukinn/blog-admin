@@ -28,6 +28,8 @@ dfs(stageConfig, item => {
 			right: item.right,
 			icon: item.icon,
 			type: item.type,
+			search: item.search,
+			outFromCard: item.outFromCard,
 		},
 	}
 	homeRouter.push(viewRouter)

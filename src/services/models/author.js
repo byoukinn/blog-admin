@@ -3,9 +3,6 @@ import { get, post, put, delete as _delete } from 'axios'
 class Author {
 	async login(data) {
 		let res = await post('/api/login', data)
-		if (res.code == 200) {
-			store.dispatch('login', data)
-		}
 		return res
 	}
 	async logout(data) {
@@ -34,6 +31,10 @@ class Author {
 	}
 	async checkName(data) {
 		let res = await post(`/api/checkAuthorName`, data)
+		return res
+	}
+	async checkPassword(id, data) {
+		let res = await post(`/api/checkPassword`, data)
 		return res
 	}
 }

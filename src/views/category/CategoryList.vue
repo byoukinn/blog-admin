@@ -1,6 +1,12 @@
 <template>
 	<div>
-		<el-table :data="tableData" style="width: 100%" v-loading="loading" :fit="true">
+		<el-table
+			:data="tableData"
+			style="width: 100%"
+			v-loading="loading"
+			:fit="true"
+			cell-class-name="cell"
+		>
 			<el-table-column prop="created_time" label="创建时间" width="220"></el-table-column>
 
 			<el-table-column prop="cname" label="分类名" width="120"></el-table-column>
@@ -52,6 +58,7 @@ export default {
 		}
 	},
 	components: {
+		// eslint-disable-next-line
 		CategoryInfo,
 	},
 	mounted() {
@@ -90,6 +97,11 @@ export default {
 <style scoped>
 .inner-button {
 	margin-right: 8px;
+}
+.cell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 </style>
 

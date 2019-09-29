@@ -5,7 +5,7 @@
 				<el-col :span="12">
 					<h3 class="title">{{ $route.meta.title }}</h3>
 				</el-col>
-				<el-col :sm="12" :md="{push:4, span:8}">
+				<el-col :sm="12" :md="{push:4, span:8}" v-if="$route.meta.search">
 					<el-input placeholder="请输入内容" v-model="filter" size="small">
 						<el-button slot="append" icon="el-icon-search"></el-button>
 					</el-input>
@@ -13,11 +13,12 @@
 			</el-row>
 		</header>
 		<transition name="fade" mode="out-in">
-			<div>
-				<el-card class="app-card">
-					<router-view></router-view>
-				</el-card>
-			</div>
+			<template v-if="$route.meta.outFromCard">
+				<router-view></router-view>
+			</template>
+			<el-card class="app-card" v-else>
+				<router-view></router-view>
+			</el-card>
 		</transition>
 	</section>
 </template>
@@ -37,6 +38,7 @@ export default {
 	watch: {
 		$route: function() {
 			this.filter = ''
+			console.log(this.$route)
 		},
 	},
 }

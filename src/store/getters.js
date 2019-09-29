@@ -16,7 +16,7 @@ let dfs = (total, callback) => {
 
 let initCollapse = false
 export const sideBarCollapse = state => {
-	const { sideBarCollapse } = state
+	let { sideBarCollapse } = state
 	// 如果是移动端第一次进来就折叠面板
 	if (!initCollapse && !os.isPc) {
 		initCollapse = true
@@ -63,6 +63,7 @@ export const navBarList = state => {
 			sideConfig.title = target.title
 			sideConfig.icon = target.icon
 			sideConfig.path = target.route
+			sideConfig.search = target.search
 			return sideConfig
 		}
 

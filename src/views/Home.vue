@@ -3,13 +3,15 @@
 		<el-container class="fill-height">
 			<el-aside class="fill-height aside" :class="{'aside--collapse': collapse}">
 				<el-header class="header">
-					<span class="logo" v-if="!collapse">博客系统</span>
-					<i
+					<p
 						class="el-icon-menu sidebar-control"
 						:class="{'active': collapse}"
 						@click="collapse = !collapse"
 						circle
-					></i>
+					></p>
+					<transition name="fade">
+						<p class="logo" v-if="!collapse">博客系统</p>
+					</transition>
 				</el-header>
 				<NavMenu class="fill-height" :collapse="collapse" />
 			</el-aside>
@@ -31,14 +33,12 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
 import { NavMenu, Tabs, AppMain, BreadCrumb, Footer } from '@/components/layout'
 import os from '@/lib/os'
 
 export default {
 	name: 'home',
 	components: {
-		// HelloWorld,
 		NavMenu,
 		Tabs,
 		AppMain,
@@ -55,11 +55,6 @@ export default {
 			this.collapse = false
 		}
 	},
-	methods: {
-		click() {
-			console.log('电机', this.collapse)
-		},
-	},
 }
 </script>
 
@@ -72,6 +67,10 @@ export default {
 }
 .header--collapse {
 	width: 64px;
+}
+.header .append {
+	display: flex;
+	justify-content: flex-end;
 }
 .main {
 	padding: 0px;
@@ -87,6 +86,13 @@ export default {
 .aside--collapse {
 	width: 64px !important;
 }
+.header p ~ p {
+	padding-left: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .sidebar-control {
 	background: #303133;
 	border: 0;
@@ -99,5 +105,13 @@ export default {
 }
 .sidebar-control.active {
 	transform: rotate(45deg);
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>

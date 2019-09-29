@@ -1,4 +1,3 @@
-import Vue from 'vue'
 let index = 1
 export default async (vm, options) => {
 	index++
@@ -13,7 +12,7 @@ export default async (vm, options) => {
 	let option = {
 		showCancelButton: options.showCancelButton || true,
 		showConfirmButton: options.showConfirmButton || true,
-		showCancelButton: options.confirmButtonText || '更新信息',
+		confirmButtonText: options.confirmButtonText || '更新信息',
 		title: options.title || '编辑信息',
 		message: h(options.component || 'div', config),
 		beforeClose: async (action, instance, done) => {

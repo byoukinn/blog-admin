@@ -24,6 +24,8 @@ const authorRouter = {
 			route: '/author/list',
 			filePath: 'views/author/AuthorList.vue',
 			inNav: true,
+			search: true,
+			outFromCard: true,
 			icon: '',
 		},
 	],

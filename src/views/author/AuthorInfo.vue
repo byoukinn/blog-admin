@@ -56,14 +56,7 @@ export default {
 				return callback()
 			}
 		}
-		let checkPassword = (rule, value, callback) => {
-			if (!value) {
-				return callback(new Error('密码不能为空'))
-			} else if (!/\d\w{5,17}/.test(value)) {
-				return callback(new Error('密码必须是6-18位字母/数字/下划线的组合'))
-			}
-			return callback()
-		}
+
 		return {
 			form: {
 				id: '',
@@ -76,7 +69,6 @@ export default {
 			loading: false,
 			rules: {
 				username: [{ validator: checkUsername, trigger: 'blur' }],
-				password: [{ validator: checkPassword, trigger: 'blur' }],
 				email: [{ min: 5, max: 150, message: '长度在 5 到 150 个字符', trigger: 'blur' }],
 				website: [{ min: 5, max: 150, message: '长度在 5 到 150 个字符', trigger: 'blur' }],
 			},

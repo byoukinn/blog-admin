@@ -24,15 +24,11 @@
 					<el-input v-model="form.cover" placeholder="请输入文章封面的地址（非必填）"></el-input>
 				</el-form-item>
 
-				<el-form-item label="创建时间" prop="create_time">
-					<el-col :span="12">
-						<el-date-picker
-							type="date"
-							placeholder="文章创建时间"
-							v-model="form.create_time"
-							style="width: 100%;"
-						></el-date-picker>
-					</el-col>
+				<el-form-item label="公开状态" prop="status">
+					<el-radio-group v-model="form.status">
+						<el-radio label="1">公开</el-radio>
+						<el-radio label="0">非公开</el-radio>
+					</el-radio-group>
 				</el-form-item>
 				<el-form-item label="文章描述" prop="desc">
 					<el-input

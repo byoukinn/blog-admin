@@ -24,6 +24,9 @@ const categoryRouter = {
 			route: '/category/list',
 			filePath: 'views/category/CategoryList.vue',
 			inNav: true,
+			search: true,
+			outFromCard: true,
+
 			icon: '',
 		},
 	],
