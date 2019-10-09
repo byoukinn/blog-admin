@@ -8,7 +8,7 @@
 export default {
 	computed: {
 		paths() {
-			return this.$route.matched.slice(1, this.$route.matched.length)
+			return this.$route.matched
 		},
 	},
 }

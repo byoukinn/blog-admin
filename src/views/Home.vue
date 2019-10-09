@@ -16,9 +16,6 @@
 				<NavMenu class="fill-height" :collapse="collapse" />
 			</el-aside>
 			<el-main class="main">
-				<el-header class="header">
-					<BreadCrumb />
-				</el-header>
 				<!-- 拆分，手动写tabs -->
 				<Tabs />
 

@@ -73,7 +73,7 @@ export default {
 				category_id: '',
 				author_id: '',
 				permission: '',
-				status: '',
+				status: 0,
 				create_time: '',
 			},
 			categorys: [],

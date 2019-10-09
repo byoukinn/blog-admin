@@ -60,6 +60,7 @@ export default {
 
 <style scoped>
 .tabs {
+	padding-top: 24px;
 	background: #303133;
 	display: flex;
 	z-index: 999;

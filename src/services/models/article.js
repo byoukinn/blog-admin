@@ -5,8 +5,8 @@ class Article {
 		let res = await post('/api/article', data)
 		return res
 	}
-	async getArticles() {
-		let res = await get('/api/article')
+	async getArticlesWithParams(data) {
+		let res = await post('/api/getArticleWithParams', data)
 		return res
 	}
 	async updateArticle(id, data) {
@@ -19,6 +19,14 @@ class Article {
 	}
 	async deleteArticle(id) {
 		let res = await _delete(`/api/article/${id}`)
+		return res
+	}
+	// 邪恶的东西，不建议用
+	async getArticles(params) {
+		let str = '?'
+		Object.entries(params).forEach(i => (str += `${i[0]}=${i[1]}&`))
+		str.substr(0, str.length - 1) // 去掉最后一个 &
+		let res = await get(`/api/article${str}`)
 		return res
 	}
 }
