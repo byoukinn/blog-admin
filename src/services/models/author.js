@@ -14,7 +14,7 @@ class Author {
 		return res
 	}
 	async getAuthors(page = 1, rowSize = 20) {
-		let res = await get(`/api/author/${page}/${rowSize}`)
+		let res = await get(`/api/authors/${page}/${rowSize}`)
 		return res
 	}
 	async updateAuthor(id, data) {

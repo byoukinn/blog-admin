@@ -7,15 +7,12 @@ import App from './App.vue'
 import store from './store'
 import axios from 'axios'
 import mock from './mock'
-import dev from './dev'
 
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI, {
 	zIndex: 3000,
 })
-
-dev(store)
 
 new Vue({
 	router,

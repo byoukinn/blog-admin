@@ -6,7 +6,7 @@ class Category {
 		return res
 	}
 	async getCategorys(page = 1, rowSize = 20) {
-		let res = await get(`/api/category/${page}/${rowSize}`)
+		let res = await get(`/api/categorys/${page}/${rowSize}`)
 		return res
 	}
 	async updateCategory(id, data) {

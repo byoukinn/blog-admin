@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .tabs {
 	padding-top: 24px;
 	background: #303133;
@@ -66,38 +66,37 @@ export default {
 	z-index: 999;
 	padding-left: 18px;
 	font-size: 14px;
-}
-.tabs li + li {
-	border-left: #30313326 solid 1px;
-}
-.tabs li {
-	transition-duration: 200ms;
-	display: inline-block;
-	padding: 8px 12px;
-	background: #aaa;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-}
-.tabs li:hover {
-	cursor: pointer;
-	background: #dfdfdf;
+	li + li {
+		border-left: #30313326 solid 1px;
+	}
+	li {
+		transition-duration: 200ms;
+		display: inline-block;
+		padding: 8px 12px;
+		background: #aaa;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	li:hover {
+		cursor: pointer;
+		background: #dfdfdf;
+		.close:hover {
+			opacity: 1;
+
+			background: #bbbbbb;
+		}
+	}
+	li.actived {
+		background: #ffffff;
+		color: #666;
+		transform: scale(1.05);
+		transform-origin: center bottom;
+	}
 }
 .close {
 	opacity: 0.4;
 	border-radius: 500px;
 }
-.tabs li:hover .close:hover {
-	opacity: 1;
-
-	background: #bbbbbb;
-}
-.tabs li.actived {
-	background: #ffffff;
-	color: #666;
-	transform: scale(1.05);
-	transform-origin: center bottom;
-}
-
 .tag-enter-active,
 .tag-leave-active {
 	transition-timing-function: linear;

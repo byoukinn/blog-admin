@@ -22,7 +22,7 @@ const routes = [
 				name: 'setting',
 				component: () => import('@/views/Setting.vue'),
 				meta: {
-					icon: 'el-icon-document',
+					icon: 'el-icon-s-operation',
 					title: '全局设置',
 				},
 			},
@@ -32,7 +32,7 @@ const routes = [
 				component: () => import('@/views/About.vue'),
 
 				meta: {
-					icon: 'el-icon-document',
+					icon: 'el-icon-warning-outline',
 					title: '关于本站',
 				},
 			},

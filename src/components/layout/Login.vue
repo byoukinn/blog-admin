@@ -104,7 +104,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .dark {
 	padding: 12px 32px;
 	background: #ebeef5;
@@ -116,3 +116,4 @@ export default {
 	background: url(../../../static/bg.jpg);
 }
 </style>
+

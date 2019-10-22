@@ -3,7 +3,7 @@ const authorRouter = {
 	name: null,
 	title: '作者管理',
 	type: 'folder',
-	icon: 'el-icon-document-copy',
+	icon: 'el-icon-user',
 	filePath: 'views/author/',
 	order: null,
 	inNav: true,

@@ -5,14 +5,13 @@
 				:data="tableData"
 				style="width: 100%"
 				v-loading="loading"
-				cell-class-name="cell--limited"
+				:fit="true"
+				cell-class-name="cell"
 			>
-				<el-table-column prop="username" label="作者名" width="120"></el-table-column>
-				<el-table-column prop="email" label="邮箱" width="200"></el-table-column>
-				<el-table-column prop="comment" label="签名" width="360"></el-table-column>
-				<el-table-column prop="website" label="个人网站" width="180"></el-table-column>
-				<el-table-column fixed="left" prop="create_time" label="创建时间" width="200"></el-table-column>
-				<el-table-column prop="update_time" label="最后登录时间" width="200"></el-table-column>
+				<el-table-column prop="created_time" label="创建时间" width="220"></el-table-column>
+				<el-table-column prop="cname" label="分类名" width="120"></el-table-column>
+				<el-table-column prop="description" label="描述" width="200"></el-table-column>
+				<el-table-column prop="cover" label="封面" width="360"></el-table-column>
 				<el-table-column fixed="right" label="操作" width="180">
 					<template slot-scope="scope">
 						<el-popover
@@ -43,9 +42,10 @@
 </template>
 
 <script>
-import Author from '@/services/models/author.js'
-import AuthorInfo from './AuthorInfo'
+import Tag from '@/services/models/tag'
+import TagInfo from './TagInfo'
 import InfoEditor from '@/lib/infoEditor'
+
 export default {
 	data() {
 		return {
@@ -59,9 +59,9 @@ export default {
 	},
 	components: {
 		// eslint-disable-next-line
-		AuthorInfo,
+		TagInfo,
 	},
-	created() {
+	mounted() {
 		this.setData()
 	},
 	methods: {
@@ -71,13 +71,13 @@ export default {
 		},
 		async setData() {
 			this.loading = true
-			let res = await Author.getAuthors(this.page, this.rowSize)
+			let res = await Tag.getTags(this.page, this.rowSize)
 			this.loading = false
 			this.tableData = res.data.data
 		},
 		async deleteRow(data) {
 			this.loading = true
-			let res = await Author.deleteAuthor(data.id)
+			let res = await Tag.deleteTag(data.id)
 			this.$message({ message: res.data.msg, type: res.data.code == 200 ? 'success' : 'error' })
 			this.setData()
 			this.loading = false
@@ -85,8 +85,8 @@ export default {
 		async editRow(data) {
 			InfoEditor(this, {
 				data: data,
-				title: '编辑作者',
-				component: AuthorInfo,
+				title: '编辑分类',
+				component: TagInfo,
 				onsuccess: () => this.setData(),
 			})
 		},
@@ -94,12 +94,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .el-card {
 	margin: 16px;
 }
 .inner-button {
 	margin-right: 8px;
 }
+.cell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 </style>
 
+ 

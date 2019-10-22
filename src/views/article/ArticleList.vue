@@ -95,8 +95,5 @@ export default {
 .el-radio {
 	padding: 8px;
 }
-.el-radio:has(> .is-checked) {
-	background: #ff6b21;
-}
 </style>
 

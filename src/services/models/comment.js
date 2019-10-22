@@ -9,8 +9,12 @@ class Comment {
 		let res = await put(`/api/comment/${id}`, data)
 		return res
 	}
-	async getComment(id = -1) {
-		let res = await get(`/api/comment/${id}`)
+	async getComments(page = 1, row = 20) {
+		let res = await get(`/api/comments/${page}/${row}`)
+		return res
+	}
+	async getComment(article_id) {
+		let res = await get(`/api/comment/${article_id}`)
 		return res
 	}
 	async deleteComment(id) {

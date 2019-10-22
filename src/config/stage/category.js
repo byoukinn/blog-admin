@@ -3,7 +3,7 @@ const categoryRouter = {
 	name: null,
 	title: '分类管理',
 	type: 'folder',
-	icon: 'el-icon-document-copy',
+	icon: 'el-icon-folder-opened',
 	filePath: 'views/category/',
 	order: null,
 	inNav: true,
