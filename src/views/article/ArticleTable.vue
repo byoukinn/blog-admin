@@ -14,8 +14,8 @@
 				</el-popover>
 			</template>
 		</el-table-column>
-		<el-table-column prop="author.username" label="作者" width="120" sortable></el-table-column>
-		<el-table-column prop="category.cname" label="分类" width="120" sortable></el-table-column>
+		<el-table-column prop="author_name" label="作者" width="120" sortable></el-table-column>
+		<el-table-column prop="cname" label="分类" width="120" sortable></el-table-column>
 		<el-table-column prop="title" label="标题" width="200"></el-table-column>
 		<el-table-column prop="status" :formatter="statusFormatter" label="状态" width="90"></el-table-column>
 		<el-table-column prop="desc" label="描述"></el-table-column>

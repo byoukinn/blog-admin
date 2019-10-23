@@ -18,6 +18,15 @@
 			</el-form>
 		</el-card>
 		<el-card>
+			<el-pagination
+				@size-change="handleSizeChange"
+				@current-change="handlePageChange"
+				:current-page="pageInfo.page"
+				:page-sizes="[20, 50, 100]"
+				:page-size="pageInfo.rowSize"
+				layout="total, sizes, prev, pager, next, jumper"
+				:total="total"
+			></el-pagination>
 			<article-table :data="tableData" :loading="tableLoading" />
 		</el-card>
 	</div>
@@ -36,17 +45,21 @@ export default {
 			visible: false,
 			tags: [],
 			categorys: [],
-			page: 1,
-			rowSize: 10,
+			total: 0,
 			index: 1, // 用于 messageBox 唯一化
 			filterForm: {
 				category_id: -1,
 				status_id: -1,
 			},
+			pageInfo: {
+				page: 1,
+				rowSize: 10,
+			},
 		}
 	},
 	created() {
 		this.getTags()
+		this.getTotal()
 		this.getCategorys()
 		this.setTableData()
 	},
@@ -66,15 +79,22 @@ export default {
 		popClose(id) {
 			this.$refs[`popover-${id}`].doClose()
 		},
+		handleSizeChange(size) {
+			this.pageInfo.rowSize = size
+		},
+		handlePageChange(page) {
+			this.pageInfo.page = page
+		},
 		async setTableData() {
 			this.tableLoading = true
 			this.loading = true
-			let res = await Article.getArticlesWithParams({ data: this.filterForm })
+			let res = await Article.getArticlesWithParams({ data: this.filterForm, pageInfo: this.pageInfo })
 			this.loading = false
 			this.tableLoading = false
 			this.tableData = res.data.data
 		},
 		async getTags() {},
+		async getTotal() {},
 		async getAuthors() {},
 		async getCategorys() {
 			let res = await Category.getCategorys()

@@ -10,6 +10,8 @@
 			>
 				<el-table-column prop="created_time" label="创建时间" width="220"></el-table-column>
 				<el-table-column prop="nickname" label="评论人" width="120"></el-table-column>
+				<el-table-column prop="to" label="原作者" width="120"></el-table-column>
+				<el-table-column prop="article_title" label="评论文章" width="120"></el-table-column>
 				<el-table-column prop="content" label="评论内容"></el-table-column>
 				<el-table-column fixed="right" label="操作" width="180">
 					<template slot-scope="scope">
