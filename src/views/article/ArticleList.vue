@@ -44,8 +44,8 @@ export default {
 			loading: false,
 			visible: false,
 			tags: [],
-			categorys: [],
 			total: 0,
+			categorys: [],
 			index: 1, // 用于 messageBox 唯一化
 			filterForm: {
 				category_id: -1,
@@ -53,7 +53,7 @@ export default {
 			},
 			pageInfo: {
 				page: 1,
-				rowSize: 10,
+				rowSize: 20,
 			},
 		}
 	},
@@ -81,9 +81,11 @@ export default {
 		},
 		handleSizeChange(size) {
 			this.pageInfo.rowSize = size
+			this.setTableData()
 		},
 		handlePageChange(page) {
 			this.pageInfo.page = page
+			this.setTableData()
 		},
 		async setTableData() {
 			this.tableLoading = true
@@ -91,7 +93,8 @@ export default {
 			let res = await Article.getArticlesWithParams({ data: this.filterForm, pageInfo: this.pageInfo })
 			this.loading = false
 			this.tableLoading = false
-			this.tableData = res.data.data
+			this.tableData = res.data.data.data
+			this.total = res.data.data.total
 		},
 		async getTags() {},
 		async getTotal() {},
